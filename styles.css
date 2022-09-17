@@ -11,10 +11,15 @@
     margin: auto;
 }
 
+#profile-picture {
+    padding-top: 20px;
+}
 
 #about-me {
     text-align: center;
-    padding-top: 30px;
+    padding-top: 20px;
+    padding-left: 35%;
+    padding-right: 35%;
 }
 
 img {

@@ -18,8 +18,8 @@
 #about-me {
     text-align: center;
     padding-top: 20px;
-    padding-left: 35%;
-    padding-right: 35%;
+    padding-left: 30%;
+    padding-right: 30%;
 }
 
 img {
@@ -29,4 +29,8 @@ img {
     border-radius: 50%;
     text-align: center;
     width: 250px;
+}
+
+#skills-and-interests {
+    padding-top: 40px;
 }

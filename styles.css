@@ -52,7 +52,7 @@ img {
 }
 
 #skills-and-interests {
-    padding-top: 40px;
+    padding-top: 10px;
     text-align: center;
 }
 
@@ -64,4 +64,14 @@ img {
 
 p {
     font-size: small;
+}
+
+#github-calendar {
+    max-width: 999px;
+    padding-top: 40px;
+    margin: auto;
+}
+
+#footer {
+    padding-top: 75px;
 }

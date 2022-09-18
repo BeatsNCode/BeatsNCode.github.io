@@ -45,6 +45,7 @@ img {
 
 .col-md-4 {
     padding-top: 20px;
+    border: 1px solid black;
 }
 
 #skills-and-interests {

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:ital@1&family=Roboto:ital,wght@1,300&family=Space+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat');
 
 h1, h4, li, p {
     font-family: 'Montserrat', sans-serif;
@@ -34,6 +34,10 @@ h6 {
     padding-right: 35%;
 }
 
+#about-me p {
+    font-size: medium;
+}
+
 img {
     display: block;
     margin-left: auto;
@@ -45,7 +49,6 @@ img {
 
 .col-md-4 {
     padding-top: 20px;
-    border: 1px solid black;
 }
 
 #skills-and-interests {
@@ -57,4 +60,8 @@ img {
     list-style-type: none;
     margin: auto;
     line-height: 50%;
+}
+
+p {
+    font-size: small;
 }

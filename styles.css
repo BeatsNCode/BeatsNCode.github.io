@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:ital@1&family=Roboto:ital,wght@1,300&family=Space+Mono&display=swap');
+
 h1, h4, li, p {
     font-family: 'Montserrat', sans-serif;
 }
@@ -39,6 +41,10 @@ img {
     border-radius: 50%;
     text-align: center;
     width: 250px;
+}
+
+.col-md-4 {
+    padding-top: 20px;
 }
 
 #skills-and-interests {

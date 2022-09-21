@@ -74,6 +74,11 @@ img {
     font-size: small;
 }
 
+/* update links on page to black */
+div.card.col-md-4.justify-content-center a {
+    color: #000;
+}
+
 #github-calendar {
     max-width: 900px;
     padding-top: 20px;

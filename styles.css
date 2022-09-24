@@ -79,6 +79,23 @@ div.card.col-md-4.justify-content-center a {
     color: #000;
 }
 
+#github-calendar {
+    max-width: 760px;
+    padding-top: 20px;
+    margin: auto;
+}
+
+@media (max-width: 770px) {
+    #github-calendar {
+      display: none;
+    }
+  }
+
+
+.text-muted {
+    white-space: nowrap;
+}
+
 #footer {
     padding-top: 50px;
     text-align: center;

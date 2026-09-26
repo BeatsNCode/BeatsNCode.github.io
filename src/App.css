@@ -5,3 +5,16 @@
   left: 50%;
   transform: translateX(-50%);
 }
+
+#portfolio-header {
+  margin-top: 2.5%;
+}
+
+#portfolio-header p {
+  font-style: italic;
+  font-size: 75%;
+}
+
+#portfolio-projects {
+  margin: auto;
+}

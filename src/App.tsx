@@ -7,10 +7,10 @@ function App() {
   return (
     <>
 
-      <section id="github-activity">
+      <div id="github-activity">
         <h4>Follow @BeatsNCode on Github</h4>
         <GitHubCalendar username="BeatsNCode" />
-      </section>
+      </div>
     </>
   )
 }

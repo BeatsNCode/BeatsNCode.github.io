@@ -33,3 +33,7 @@
   flex: 0 0 100%;
   min-width: 0;
 }
+
+#follow-on-github a {
+  color:rgb(177, 177, 177);
+}

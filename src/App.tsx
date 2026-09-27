@@ -23,7 +23,7 @@ function App() {
 
       </div>
       <div id="github-activity">
-        <h4>Follow @BeatsNCode on Github</h4>
+        <h4 id="follow-on-github">Follow <a href='https://github.com/BeatsNCode' target='_blank'>@BeatsNCode</a> on Github</h4>
         <GitHubCalendar 
           username="BeatsNCode"
           blockSize={11}

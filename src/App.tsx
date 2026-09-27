@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import { GitHubCalendar } from 'react-github-calendar'
+import { EmblaCarousel as ProjectCarousel } from './components/projectCarousel'
 
 function App() {
 
@@ -16,7 +17,7 @@ function App() {
         <h4>Recent Projects</h4>
 
         <div>
-
+          <ProjectCarousel/>
 
         </div>
 

@@ -22,13 +22,14 @@ export function EmblaCarousel() {
           <div className="embla__slide">Slide 3</div>
         </div>
       </div>
-
-      <button className="embla__prev" onClick={scrollPrev}>
-        Scroll to prev
-      </button>
-      <button className="embla__next" onClick={scrollNext}>
-        Scroll to next
-      </button>
+      <div className="embla__buttons">
+        <button className="embla__prev" onClick={scrollPrev}>
+          Previous
+        </button>
+        <button className="embla__next" onClick={scrollNext}>
+          Next
+        </button>
+      </div>
     </div>
   )
 }

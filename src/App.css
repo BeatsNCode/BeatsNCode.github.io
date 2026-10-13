@@ -1,5 +1,5 @@
 #github-activity {
-  position: fixed;
+  position: absolute;
   margin: auto;
   bottom: 40px;
   left: 50%;
@@ -13,6 +13,7 @@
 #portfolio-header p {
   font-style: italic;
   font-size: 75%;
+  margin: -25px;;
 }
 
 #portfolio-projects {
@@ -33,6 +34,14 @@
   flex: 0 0 100%;
   min-width: 0;
 }
+
+.embla__buttons {
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+  margin: auto;
+  gap: 10px;
+} 
 
 #follow-on-github a {
   color:rgb(177, 177, 177);

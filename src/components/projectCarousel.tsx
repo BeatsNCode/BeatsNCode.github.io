@@ -24,7 +24,7 @@ export function EmblaCarousel() {
       </div>
       <div className="embla__buttons">
         <button className="embla__prev" onClick={scrollPrev}>
-          Previous
+          Prev
         </button>
         <button className="embla__next" onClick={scrollNext}>
           Next

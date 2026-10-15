@@ -1,30 +1,46 @@
-#github-activity {
-  position: fixed;
-  margin: auto;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-}
 
 #portfolio-header {
-  margin-top: 2.5%;
+  /* margin-top: 40px; */
+  text-align: center;
 }
 
 #portfolio-header p {
   font-style: italic;
   font-size: 75%;
-  margin: -25px;;
+  margin: -10px 0;
 }
 
 #portfolio-skills {
-  /* margin: auto; */
   margin-top: 40px;
-  padding-bottom: 10px;
+  text-align: center;
+}
+
+#portfolio-skills ul {
+  font-size: 75%;
+  margin: -10px 0;
 }
 
 #portfolio-projects {
-  margin-top: 20px;
-  padding-bottom: 10%;
+  margin-top: 40px;
+  text-align: center;
+  padding-bottom: 40px;
+}
+
+#follow-on-github {
+  margin-top: 40px;
+  text-align: center;
+}
+
+#follow-on-github a {
+  color: rgb(177, 177, 177);
+}
+
+#github-activity {
+  position: relative;
+  width: fit-content;
+  max-width: 100%;
+  margin: 60px auto 40px;
+  overflow-x: auto;
 }
 
 .embla__viewport {
@@ -32,6 +48,7 @@
 }
 
 .embla__container {
+  margin-top: 20px;
   display: flex;
   touch-action: pan-y pinch-zoom;
 }
@@ -44,10 +61,6 @@
 .embla__buttons {
   display: flex;
   justify-content: center;
-  margin-top: 10px;
-  margin: 10px;
-} 
-
-#follow-on-github a {
-  color:rgb(177, 177, 177);
+  margin-top: 40px;
+  gap: 2.5px;
 }

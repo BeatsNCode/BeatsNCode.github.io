@@ -9,9 +9,21 @@ function App() {
     <>
       <header id="portfolio-header">
         <h1>Jean R. Augustin</h1>
-        <h5>Engineer · Musician · Founder</h5>
+        <h5>Engineer · Musician</h5>
         <p>Building software and products at the intersection of technology, music, and creativity.</p>
       </header>
+
+      <div id="portfolio-skills">
+        <h4>Skills</h4>
+        <ul style={{ listStyleType: 'none', paddingLeft: 0 }}>
+          <li>JavaScript</li>
+          <li>TypeScript</li>
+          <li>React.js</li>
+          <li>Node.js</li>
+          <li>Python</li>
+          <li>PostgreSQL</li>
+        </ul>
+      </div>
 
       <div id="portfolio-projects">
         <h4>Recent Projects</h4>

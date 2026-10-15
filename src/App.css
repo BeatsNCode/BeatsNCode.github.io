@@ -1,5 +1,5 @@
 #github-activity {
-  position: absolute;
+  position: fixed;
   margin: auto;
   bottom: 40px;
   left: 50%;
@@ -16,8 +16,14 @@
   margin: -25px;;
 }
 
+#portfolio-skills {
+  /* margin: auto; */
+  margin-top: 40px;
+  padding-bottom: 10px;
+}
+
 #portfolio-projects {
-  margin: auto;
+  margin-top: 20px;
   padding-bottom: 10%;
 }
 
@@ -38,9 +44,8 @@
 .embla__buttons {
   display: flex;
   justify-content: center;
-  padding-top: 40px;
-  margin: auto;
-  gap: 10px;
+  margin-top: 10px;
+  margin: 10px;
 } 
 
 #follow-on-github a {

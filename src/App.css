@@ -1,4 +1,6 @@
 
+/* Portfolio Header */
+
 #portfolio-header {
   text-align: center;
 }
@@ -9,16 +11,40 @@
   margin: -10px 0;
 }
 
+/* Section Separators */
+
+#portfolio-skills,
+#portfolio-projects,
+#github-activity {
+  position: relative;
+  padding-top: 20px;
+}
+
+#portfolio-skills::before,
+#portfolio-projects::before,
+#github-activity::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(650px, 90%);
+  height: 1px;
+  background: #30313a;
+}
+
 /* Technical Skills */
 
 #portfolio-skills {
-  margin: 40px auto 0;
+  box-sizing: border-box;
+  width: 100%;
   max-width: 650px;
+  margin: 40px auto 0;
   text-align: center;
 }
 
 #portfolio-skills h4 {
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 
 .skills-container {
@@ -68,10 +94,16 @@
 /* Recent Projects */
 
 #portfolio-projects {
-  margin-top: 40px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 650px;
+  margin: 40px auto 0;
   text-align: center;
   padding-bottom: 40px;
 }
+
+/* GitHub Activity */
+
 
 /* GitHub Activity */
 
@@ -85,11 +117,20 @@
 }
 
 #github-activity {
-  position: relative;
-  width: fit-content;
-  max-width: 100%;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1000px;
   margin: 10px auto 40px;
+  padding-top: 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   overflow-x: auto;
+}
+
+#github-activity > * {
+  max-width: 100%;
 }
 
 /* Project Carousel */
@@ -109,6 +150,7 @@
   min-width: 0;
 }
 
+/* Carousel Buttons */
 
 .embla__buttons {
   display: flex;
@@ -148,12 +190,13 @@
   outline-offset: 3px;
 }
 
-
 /* Responsive Layout */
 
 @media (max-width: 600px) {
-  #portfolio-skills {
-    padding: 0 20px;
+  #portfolio-skills,
+  #portfolio-projects {
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   .skills-container {

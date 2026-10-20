@@ -2,6 +2,7 @@
 import './App.css'
 import { GitHubCalendar } from 'react-github-calendar'
 import { EmblaCarousel as ProjectCarousel } from './components/projectCarousel'
+import SectionNav from './components/sectionNav'
 
 const skills = [
   {
@@ -29,6 +30,7 @@ const skills = [
 function App() {
   return (
     <>
+      <SectionNav />
       <header id="portfolio-header">
         <h1>Jean R. Augustin</h1>
         <h5>Engineer · Musician</h5>

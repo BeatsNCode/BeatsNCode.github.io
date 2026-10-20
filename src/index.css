@@ -48,9 +48,22 @@
 
 }
 
+
+/* Page Scrolling */
+
 html {
   scroll-behavior: smooth;
+  scrollbar-width: none;
 }
+
+/* Hide scrollbar in Chrome, Safari, and Edge */
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Root Layout */
 
 #root {
   width: 1126px;
@@ -64,12 +77,18 @@ html {
   box-sizing: border-box;
 }
 
+/* Body */
+
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100svh;
   overflow-x: hidden;
   overflow-y: auto;
+
+  /* Hide scrollbar while preserving scrolling */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 /* Smooth navigation to portfolio sections */
@@ -79,3 +98,12 @@ body {
 #portfolio-projects,
 #github-activity {
   scroll-margin-top: 30px;
+}
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

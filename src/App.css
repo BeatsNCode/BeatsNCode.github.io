@@ -1,6 +1,5 @@
 
 #portfolio-header {
-  /* margin-top: 40px; */
   text-align: center;
 }
 
@@ -10,21 +9,71 @@
   margin: -10px 0;
 }
 
+/* Technical Skills */
+
 #portfolio-skills {
-  margin-top: 40px;
+  margin: 40px auto 0;
+  max-width: 650px;
   text-align: center;
 }
 
-#portfolio-skills ul {
-  font-size: 75%;
-  margin: -10px 0;
+#portfolio-skills h4 {
+  margin-bottom: 25px;
 }
+
+.skills-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.skill-group {
+  width: 100%;
+}
+
+.skill-group h5 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #9ca3af;
+  margin: 0 0 12px;
+}
+
+.skill-items {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-tag {
+  display: inline-block;
+  font-size: 13px;
+  color: #a1a1aa;
+  background: #202127;
+  border: 1px solid #30313a;
+  border-radius: 6px;
+  padding: 6px 12px;
+  transition: background 0.2s ease,
+              border-color 0.2s ease,
+              color 0.2s ease;
+}
+
+.skill-tag:hover {
+  color: #ffffff;
+  background: #2d2f38;
+  border-color: #52525b;
+}
+
+/* Recent Projects */
 
 #portfolio-projects {
   margin-top: 40px;
   text-align: center;
   padding-bottom: 40px;
 }
+
+/* GitHub Activity */
 
 #follow-on-github {
   margin-top: 20px;
@@ -43,6 +92,8 @@
   overflow-x: auto;
 }
 
+/* Project Carousel */
+
 .embla__viewport {
   overflow: hidden;
 }
@@ -58,10 +109,67 @@
   min-width: 0;
 }
 
+
 .embla__buttons {
   display: flex;
   justify-content: center;
   margin-top: 40px;
   margin-bottom: -20px;
-  gap: 2.5px;
+  gap: 5px;
+}
+
+.embla__buttons button {
+  font-family: inherit;
+  font-size: 13px;
+  color: #a1a1aa;
+  background: #202127;
+  border: 1px solid #30313a;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: background 0.2s ease,
+              border-color 0.2s ease,
+              color 0.2s ease;
+}
+
+.embla__buttons button:hover:not(:disabled) {
+  color: #ffffff;
+  background: #2d2f38;
+  border-color: #52525b;
+}
+
+.embla__buttons button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.embla__buttons button:focus-visible {
+  outline: 2px solid #71717a;
+  outline-offset: 3px;
+}
+
+
+/* Responsive Layout */
+
+@media (max-width: 600px) {
+  #portfolio-skills {
+    padding: 0 20px;
+  }
+
+  .skills-container {
+    gap: 18px;
+  }
+
+  .skill-items {
+    gap: 6px;
+  }
+
+  .skill-tag {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+
+  #github-activity {
+    width: 100%;
+  }
 }

@@ -76,10 +76,12 @@ function App() {
           on GitHub
         </h4>
 
+        <div className="github-calendar-wrapper">
         <GitHubCalendar
           username="BeatsNCode"
           blockSize={11}
         />
+      </div>
       </section>
     </>
   )

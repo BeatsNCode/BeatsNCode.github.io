@@ -22,7 +22,8 @@ const skills = [
     items: [
       'API Integration',
       'Systems Integration',
-      'REST & GraphQL APIs'
+      'REST & GraphQL APIs',
+      'LLM Integration'
     ]
   }
 ]

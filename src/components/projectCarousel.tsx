@@ -20,6 +20,8 @@ export function EmblaCarousel() {
           <div className="embla__slide">Slide 1</div>
           <div className="embla__slide">Slide 2</div>
           <div className="embla__slide">Slide 3</div>
+          <div className="embla__slide">Slide 4</div>
+          <div className="embla__slide">Slide 5</div>
         </div>
       </div>
       <div className="embla__buttons">

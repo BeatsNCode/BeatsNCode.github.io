@@ -1,16 +1,190 @@
 
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/geist";
+
+@custom-variant dark (&:is(.dark *));
+
+/* =========================================
+   Animated Background
+========================================= */
+
+.soft-aurora-background {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100dvh;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: #09090f;
+}
+
+.soft-aurora-background > div,
+.soft-aurora-background canvas {
+  width: 100%;
+  height: 100%;
+}
+
+/* =========================================
+   Starfield Overlay
+========================================= */
+
+.starfield {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.stars {
+  position: absolute;
+  inset: 0;
+  background-repeat: repeat;
+  animation: star-twinkle 5s ease-in-out infinite alternate;
+}
+
+/* Tiny distant stars */
+
+.stars-small {
+  background-image:
+    radial-gradient(1px 1px at 20px 30px, #fff 98%, transparent),
+    radial-gradient(1px 1px at 100px 150px, #fff 98%, transparent),
+    radial-gradient(1px 1px at 190px 80px, #fff 98%, transparent),
+    radial-gradient(1px 1px at 270px 220px, #fff 98%, transparent),
+    radial-gradient(1px 1px at 340px 120px, #fff 98%, transparent),
+    radial-gradient(1px 1px at 410px 290px, #fff 98%, transparent);
+
+  background-size: 450px 320px;
+  opacity: 0.35;
+  animation-duration: 6s;
+}
+
+/* Medium stars */
+
+.stars-medium {
+  background-image:
+    radial-gradient(1.5px 1.5px at 70px 90px, #fff 98%, transparent),
+    radial-gradient(1.5px 1.5px at 230px 190px, #fff 98%, transparent),
+    radial-gradient(1.5px 1.5px at 390px 60px, #fff 98%, transparent);
+
+  background-size: 520px 380px;
+  opacity: 0.5;
+  animation-duration: 8s;
+  animation-delay: -2s;
+}
+
+/* Brighter stars */
+
+.stars-large {
+  background-image:
+    radial-gradient(2px 2px at 140px 120px, #fff 98%, transparent),
+    radial-gradient(2px 2px at 420px 280px, #d8c8ff 98%, transparent);
+
+  background-size: 650px 450px;
+  opacity: 0.65;
+  animation-duration: 10s;
+  animation-delay: -4s;
+}
+
+@keyframes star-twinkle {
+  from {
+    opacity: 0.15;
+  }
+
+  to {
+    opacity: 0.65;
+  }
+}
+
+/* =========================================
+   Independently Twinkling Stars
+========================================= */
+
+.twinkling-stars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.twinkle-star {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  background: #ffffff;
+  opacity: 0.15;
+
+  animation-name: individual-twinkle;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+
+  will-change: opacity;
+}
+
+@keyframes individual-twinkle {
+  0%, 35%, 65%, 100% {
+    opacity: 0.1;
+    box-shadow: none;
+  }
+
+  45% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 1;
+    box-shadow:
+      0 0 4px 1px rgba(255, 255, 255, 0.8),
+      0 0 10px 2px rgba(180, 150, 255, 0.35);
+  }
+
+  55% {
+    opacity: 0.4;
+  }
+}
+
+/* =========================================
+   Portfolio Content
+========================================= */
+
+.portfolio-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  min-height: 100svh;
+  background: transparent;
+  pointer-events: auto;
+}
+
 /* =========================================
    Portfolio Header
 ========================================= */
 
 #portfolio-header {
   text-align: center;
+  margin-top: 5px;
+  padding-top: 25px;
+}
+
+#portfolio-header h1 {
+  font-family: 'Geist Variable', sans-serif;
+  font-size: clamp(2rem, 3vw, 2.75rem);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  color: #f5f5f7;
+}
+
+#portfolio-header h5 {
+  text-align: center;
+  margin-top: 5px;
 }
 
 #portfolio-header p {
   font-style: italic;
   font-size: 75%;
-  margin: -10px 0;
+  margin: 10px 0;
 }
 
 /* =========================================
@@ -32,6 +206,7 @@
   top: 0;
   left: 50%;
   transform: translateX(-50%);
+
   width: min(650px, 90%);
   height: 1px;
   background: #30313a;
@@ -86,6 +261,7 @@
   border: 1px solid #30313a;
   border-radius: 6px;
   padding: 6px 12px;
+
   transition:
     background 0.2s ease,
     border-color 0.2s ease,
@@ -116,7 +292,8 @@
 ========================================= */
 
 #follow-on-github {
-  margin-top: 20px;
+  margin-top: 10px;
+  margin-bottom: 20px;
   text-align: center;
 }
 
@@ -140,9 +317,6 @@
 
 /* GitHub Calendar */
 
-
-/* GitHub Calendar */
-
 .github-calendar-wrapper {
   box-sizing: border-box;
   width: 100%;
@@ -150,12 +324,12 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  margin-botton: -2000px;
 }
 
 .github-calendar-wrapper > * {
   flex-shrink: 0;
 }
-
 
 /* =========================================
    Project Carousel
@@ -220,12 +394,11 @@
   outline-offset: 3px;
 }
 
-
 /* =========================================
    Responsive Layout
 ========================================= */
 
-  /* Tablets */
+/* Tablets */
 
 @media (min-width: 601px) and (max-width: 1024px) {
   .github-calendar-wrapper > * {
@@ -235,10 +408,9 @@
   }
 }
 
+/* Mobile */
+
 @media (max-width: 600px) {
-
-  /* Technical Skills */
-
   #portfolio-skills,
   #portfolio-projects {
     padding-left: 20px;
@@ -258,8 +430,6 @@
     padding: 5px 10px;
   }
 
-  /* GitHub Activity */
-
   #github-activity {
     width: 100%;
     max-width: 100%;
@@ -274,10 +444,6 @@
     line-height: 1.5;
     text-align: center;
   }
-
-  /* GitHub Calendar - 50% Size */
-
-/* Mobile */
 
   .github-calendar-wrapper {
     width: 100%;
@@ -296,12 +462,136 @@
 }
 
 /* =========================================
-   Reduced Motion
+   Accessibility
 ========================================= */
 
 @media (prefers-reduced-motion: reduce) {
+  .stars,
+  .twinkle-star {
+    animation: none;
+  }
+
+  .twinkle-star {
+    opacity: 0.3;
+  }
+
   .skill-tag,
   .embla__buttons button {
     transition: none;
+  }
+}
+
+/* =========================================
+   Shadcn / Tailwind Theme
+========================================= */
+
+@theme inline {
+  --font-heading: var(--font-sans);
+  --font-sans: 'Geist Variable', sans-serif;
+
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+/* Dark portfolio defaults */
+
+:root {
+  --background: #09090f;
+  --foreground: #c4c4cc;
+
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+
+  --radius: 0.625rem;
+
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    @apply font-sans;
+  }
+
+  body {
+    background-color: #09090f;
+    color: #c4c4cc;
+    font-family: 'Geist Variable', sans-serif;
   }
 }

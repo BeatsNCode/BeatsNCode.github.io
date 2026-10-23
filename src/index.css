@@ -1,69 +1,109 @@
-:root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #ffffff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+/* =========================================
+   Theme & Typography
+========================================= */
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+:root {
+  --text: #c4c4cc;
+  --text-h: #c4c4cc;
+  --bg: #09090f;
+  --border: #30313a;
+  --code-bg: #1f2028;
+  --accent: #ffffff;
+  --accent-bg: rgba(192, 132, 252, 0.12);
+  --accent-border: rgba(192, 132, 252, 0.4);
+  --social-bg: rgba(47, 48, 58, 0.5);
+
+  --shadow:
+    rgba(0, 0, 0, 0.4) 0 10px 15px -3px,
+    rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+
+  --sans: 'Geist Variable', system-ui, sans-serif;
+  --heading: var(--sans);
   --mono: ui-monospace, Consolas, monospace;
 
-  font: 18px/145% var(--sans);
+  font-family: var(--sans);
+  font-size: 18px;
+  line-height: 1.45;
   letter-spacing: 0.18px;
-  color-scheme: light dark;
+
+  color-scheme: dark;
   color: var(--text);
   background: var(--bg);
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #ffffff;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-
 }
 
 
-/* Page Scrolling */
+/* =========================================
+   Page Scrolling
+========================================= */
 
 html {
   scroll-behavior: smooth;
   scrollbar-width: none;
+  min-height: 100%;
+  background: var(--bg);
 }
-
-/* Hide scrollbar in Chrome, Safari, and Edge */
 
 html::-webkit-scrollbar,
 body::-webkit-scrollbar {
   display: none;
 }
 
-/* Root Layout */
+/* =========================================
+   Body
+========================================= */
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100svh;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  background: var(--bg);
+  font-family: var(--sans);
+  color: var(--text);
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+
+/* =========================================
+   Global Typography
+========================================= */
+
+body,
+#root,
+.portfolio-content {
+  font-family: var(--sans);
+  color: var(--text);
+}
+
+body {
+  font-family: var(--sans);
+  color: var(--text);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--heading);
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+/* =========================================
+   Root Layout
+========================================= */
 
 #root {
   width: 1126px;
@@ -75,23 +115,57 @@ body::-webkit-scrollbar {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+
+  background: transparent;
 }
 
-/* Body */
+/* =========================================
+   SoftAurora Background
+========================================= */
 
-body {
-  margin: 0;
-  min-width: 320px;
+.soft-aurora-background {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100dvh;
+  z-index: 0;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.soft-aurora-background > div,
+.soft-aurora-background canvas {
+  width: 100%;
+  height: 100%;
+}
+
+/* =========================================
+   Starfield
+========================================= */
+
+.starfield {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* =========================================
+   Portfolio Content
+========================================= */
+
+.portfolio-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
   min-height: 100svh;
-  overflow-x: hidden;
-  overflow-y: auto;
-
-  /* Hide scrollbar while preserving scrolling */
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  background: transparent;
 }
 
-/* Smooth navigation to portfolio sections */
+/* =========================================
+   Section Navigation
+========================================= */
 
 #portfolio-header,
 #portfolio-skills,
@@ -100,7 +174,26 @@ body {
   scroll-margin-top: 30px;
 }
 
-/* Respect reduced-motion preferences */
+/* Keep navigation interactive */
+
+.section-nav {
+  z-index: 100;
+  pointer-events: auto;
+}
+
+/* =========================================
+   Tablet
+========================================= */
+
+@media (max-width: 1024px) {
+  :root {
+    font-size: 16px;
+  }
+}
+
+/* =========================================
+   Reduced Motion
+========================================= */
 
 @media (prefers-reduced-motion: reduce) {
   html {

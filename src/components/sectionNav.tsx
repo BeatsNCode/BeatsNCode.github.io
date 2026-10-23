@@ -1,6 +1,6 @@
 
-import { useEffect, useState } from "react";
-import "../sectionNav.css";
+import { useEffect, useRef, useState } from "react";
+import "./sectionNav.css";
 
 const sections = [
   { id: "portfolio-header", label: "Introduction" },
@@ -12,21 +12,29 @@ const sections = [
 export default function SectionNav() {
   const [activeSection, setActiveSection] = useState(0);
 
-  useEffect(() => {
-    const updateProgress = () => {
-      const scrollTop = window.scrollY;
-      const scrollHeight =
-        document.documentElement.scrollHeight -
-        window.innerHeight;
+  const selectedSection = useRef<number | null>(null);
 
-      if (scrollHeight <= 0) {
+  useEffect(() => {
+    const updateActiveSection = () => {
+      // Keep the clicked dot active until the user scrolls manually.
+      if (selectedSection.current !== null) return;
+
+      const scrollTop = window.scrollY;
+
+      const maxScroll = Math.max(
+        0,
+        document.documentElement.scrollHeight -
+          window.innerHeight
+      );
+
+      if (maxScroll <= 0) {
         setActiveSection(0);
         return;
       }
 
       const progress = Math.min(
         1,
-        Math.max(0, scrollTop / scrollHeight)
+        Math.max(0, scrollTop / maxScroll)
       );
 
       const index = Math.min(
@@ -37,32 +45,57 @@ export default function SectionNav() {
       setActiveSection(index);
     };
 
-    window.addEventListener("scroll", updateProgress, {
+    const handleWheel = () => {
+      selectedSection.current = null;
+    };
+
+    const handleTouch = () => {
+      selectedSection.current = null;
+    };
+
+    window.addEventListener("scroll", updateActiveSection, {
       passive: true,
     });
-    window.addEventListener("resize", updateProgress);
 
-    updateProgress();
+    window.addEventListener("wheel", handleWheel, {
+      passive: true,
+    });
+
+    window.addEventListener("touchstart", handleTouch, {
+      passive: true,
+    });
+
+    window.addEventListener("resize", updateActiveSection);
+
+    updateActiveSection();
 
     return () => {
-      window.removeEventListener("scroll", updateProgress);
-      window.removeEventListener("resize", updateProgress);
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("wheel", handleWheel);
+      window.removeEventListener("touchstart", handleTouch);
+      window.removeEventListener("resize", updateActiveSection);
     };
   }, []);
 
   const scrollToSection = (index: number) => {
-    const element = document.getElementById(
-      sections[index].id
-    );
+    const element = document.getElementById(sections[index].id);
 
-    element?.scrollIntoView({
+    if (!element) return;
+
+    selectedSection.current = index;
+    setActiveSection(index);
+
+    element.scrollIntoView({
       behavior: "smooth",
-      block: "start",
+      block: "nearest",
     });
   };
 
   return (
-    <nav className="section-nav" aria-label="Page navigation">
+    <nav
+      className="section-nav"
+      aria-label="Page navigation"
+    >
       {sections.map((section, index) => (
         <button
           key={section.id}
@@ -74,7 +107,9 @@ export default function SectionNav() {
           title={section.label}
           aria-label={`Go to ${section.label}`}
           aria-current={
-            activeSection === index ? "location" : undefined
+            activeSection === index
+              ? "location"
+              : undefined
           }
         />
       ))}

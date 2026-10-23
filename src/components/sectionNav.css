@@ -1,0 +1,107 @@
+
+/* Section Navigation */
+
+.section-nav {
+  position: fixed;
+  right: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+
+  z-index: 1000;
+  pointer-events: auto;
+}
+
+/* Navigation Dots */
+
+.section-dot {
+  width: 8px;
+  height: 8px;
+  min-width: 8px;
+  min-height: 8px;
+
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+
+  background: #555762;
+  cursor: pointer;
+
+  flex-shrink: 0;
+
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* Hover */
+
+.section-dot:hover {
+  background: #aaa;
+  transform: scale(1.3);
+}
+
+/* Active Section */
+
+.section-dot.active {
+  background: #ffffff;
+  transform: scale(1.5);
+
+  box-shadow:
+    0 0 0 3px rgba(255, 255, 255, 0.12),
+    0 0 10px rgba(255, 255, 255, 0.15);
+}
+
+/* Keyboard Accessibility */
+
+.section-dot:focus-visible {
+  outline: 2px solid #a78bfa;
+  outline-offset: 5px;
+}
+
+/* Smooth Scrolling */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Tablet */
+
+@media (max-width: 1024px) {
+  .section-nav {
+    right: 18px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  .section-nav {
+    right: 12px;
+    gap: 16px;
+  }
+
+  .section-dot {
+    width: 7px;
+    height: 7px;
+    min-width: 7px;
+    min-height: 7px;
+  }
+}
+
+/* Reduced Motion */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .section-dot {
+    transition: none;
+  }
+}

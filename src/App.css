@@ -193,12 +193,14 @@ html::-webkit-scrollbar {
   pointer-events: auto;
 }
 
+
 #portfolio-header {
-  text-align: center;
-  margin-top: 5px;
-  padding-top: 25px;
-  padding-bottom: 25px;
+  width: 100%;
+  padding: 25px 20px 0;
+  box-sizing: border-box;
 }
+
+
 
 #portfolio-header h3 {
   font-family: inherit, sans-serif;
@@ -214,9 +216,15 @@ html::-webkit-scrollbar {
 }
 
 #portfolio-header p {
-  font-style: italic;
-  font-size: 75%;
-  margin: 10px 0 -15px 0;
+  width: min(650px, 90%);
+  max-width: 100%;
+  margin: 10px auto 0;
+  padding: 0;
+  white-space: normal;
+  overflow-wrap: break-word;
+  line-height: 1.6;
+  text-align: center;
+  font-size: 15px;
 }
 
 
@@ -269,7 +277,44 @@ html::-webkit-scrollbar {
   .portfolio-links a {
     font-size: 12px;
   }
+
+  .portfolio-links {
+    width: 85%;
+  }
+
+  .portfolio-links::before {
+    width: 100%;
+  }
+
+  #portfolio-skills::before,
+  #portfolio-projects::before,
+  #github-activity::before {
+    width: 85%;
+  }
+
+  .section-nav {
+    right: 16px;
+    gap: 14px;
+  }
+
+  .section-nav .section-dot {
+    width: 7px;
+    height: 7px;
+    min-width: 7px;
+    min-height: 7px;
+  }
+
+  .section-nav .section-dot.active {
+    transform: scale(1.25);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.12);
+  }
+
+  .section-nav .section-dot:hover,
+  .section-nav .section-dot:focus-visible {
+    transform: scale(1.25);
+  }
 }
+
 
 
 #portfolio-skills,
@@ -616,5 +661,22 @@ html::-webkit-scrollbar {
     background-color: #09090f;
     color: #c4c4cc;
     font-family: 'Geist Variable', sans-serif;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .portfolio-links {
+    width: 100%;
+  }
+
+  .portfolio-links::before,
+  #portfolio-skills::before,
+  #portfolio-projects::before,
+  #github-activity::before {
+    width: calc(100vw - 72px);
+    max-width: none;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }

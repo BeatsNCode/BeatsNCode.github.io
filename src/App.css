@@ -215,17 +215,21 @@ html::-webkit-scrollbar {
   margin-top: 5px;
 }
 
+
 #portfolio-header p {
-  width: min(650px, 90%);
-  max-width: 100%;
-  margin: 10px auto 0;
-  padding: 0;
-  white-space: normal;
-  overflow-wrap: break-word;
+  width: 100%;
+  max-width: 590px;
+  margin: 10px auto -15px; /* Adjusted margin to -15px to decrease space. Increase bottom margin to increase space */
+  padding: 0 12px;
+  box-sizing: border-box;
+  font-style: italic;
+  font-size: 14px;
   line-height: 1.6;
   text-align: center;
-  font-size: 15px;
+  white-space: normal;
+  overflow-wrap: break-word;
 }
+
 
 
 .portfolio-links {
@@ -412,6 +416,7 @@ html::-webkit-scrollbar {
 
 #follow-on-github a {
   color: rgb(177, 177, 177);
+  text-decoration: underline;
 }
 
 #github-activity {

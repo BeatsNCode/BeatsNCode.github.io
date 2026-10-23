@@ -2,7 +2,6 @@
 import './App.css'
 import { GitHubCalendar } from 'react-github-calendar'
 import { EmblaCarousel as ProjectCarousel } from './components/projectCarousel'
-import SectionNav from './components/sectionNav'
 import SoftAurora from './components/SoftAurora';
 
 
@@ -89,10 +88,17 @@ function App() {
       </div>
 
       <div className="portfolio-content">
-        <SectionNav />
+        
+        <nav className="section-nav" aria-label="Page navigation">
+          <a href="#portfolio-header" className="section-dot" aria-label="Introduction" />
+          <a href="#portfolio-skills" className="section-dot" aria-label="Skills" />
+          <a href="#portfolio-projects" className="section-dot" aria-label="Projects" />
+          <a href="#github-activity" className="section-dot" aria-label="GitHub" />
+        </nav>
+
 
         <header id="portfolio-header">
-          <h1>Jean R. Augustin</h1>
+          <h3>Jean R. Augustin</h3>
           <h5>Engineer · Musician</h5>
           <p>
             Building software and products at the intersection

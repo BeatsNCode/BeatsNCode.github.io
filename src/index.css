@@ -25,17 +25,14 @@
   font-size: 18px;
   line-height: 1.45;
   letter-spacing: 0.18px;
-
   color-scheme: dark;
   color: var(--text);
   background: var(--bg);
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 
 /* =========================================
    Page Scrolling
@@ -54,38 +51,24 @@ body::-webkit-scrollbar {
 }
 
 /* =========================================
-   Body
+   Body & Typography
 ========================================= */
 
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100svh;
-
   overflow-x: hidden;
   overflow-y: auto;
-
   background: var(--bg);
   font-family: var(--sans);
   color: var(--text);
-
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
 
-
-/* =========================================
-   Global Typography
-========================================= */
-
-body,
 #root,
 .portfolio-content {
-  font-family: var(--sans);
-  color: var(--text);
-}
-
-body {
   font-family: var(--sans);
   color: var(--text);
 }
@@ -111,11 +94,9 @@ select {
   margin: 0 auto;
   text-align: center;
   min-height: 100svh;
-
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-
   background: transparent;
 }
 
@@ -161,24 +142,6 @@ select {
   width: 100%;
   min-height: 100svh;
   background: transparent;
-}
-
-/* =========================================
-   Section Navigation
-========================================= */
-
-#portfolio-header,
-#portfolio-skills,
-#portfolio-projects,
-#github-activity {
-  scroll-margin-top: 30px;
-}
-
-/* Keep navigation interactive */
-
-.section-nav {
-  z-index: 100;
-  pointer-events: auto;
 }
 
 /* =========================================

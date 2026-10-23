@@ -3,12 +3,15 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/geist";
-
 @custom-variant dark (&:is(.dark *));
-
 
 html {
   scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
 }
 
 .section-nav {
@@ -16,35 +19,46 @@ html {
   right: 28px;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 1000;
-
+  z-index: 9999;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 18px;
+  pointer-events: auto;
 }
 
-.section-dot {
+.section-nav .section-dot {
   display: block;
-  width: 8px;
-  height: 8px;
+  position: relative;
+  flex-shrink: 0;
+  width: 9px;
+  height: 9px;
+  min-width: 9px;
+  min-height: 9px;
+  padding: 0;
+  border: 0;
   border-radius: 50%;
-  background: #555762;
-  transition:
-    background 0.25s ease,
-    transform 0.25s ease;
+  background-color: #555762;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.section-dot:hover,
-.section-dot:focus-visible {
-  background: #ffffff;
+.section-nav .section-dot::before {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  border-radius: 50%;
+}
+
+.section-nav .section-dot:hover,
+.section-nav .section-dot:focus-visible {
+  background-color: #ffffff;
   transform: scale(1.5);
 }
 
-/* Highlight the clicked anchor */
-
-.section-dot:focus {
-  background: #ffffff;
+.section-nav .section-dot.active {
+  background-color: #ffffff;
   transform: scale(1.5);
   box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.12);
 }
@@ -52,13 +66,9 @@ html {
 @media (max-width: 768px) {
   .section-nav {
     right: 12px;
+    gap: 16px;
   }
 }
-
-
-/* =========================================
-   Animated Background
-========================================= */
 
 .soft-aurora-background {
   position: fixed;
@@ -77,10 +87,6 @@ html {
   height: 100%;
 }
 
-/* =========================================
-   Starfield Overlay
-========================================= */
-
 .starfield {
   position: fixed;
   inset: 0;
@@ -96,8 +102,6 @@ html {
   animation: star-twinkle 5s ease-in-out infinite alternate;
 }
 
-/* Tiny distant stars */
-
 .stars-small {
   background-image:
     radial-gradient(1px 1px at 20px 30px, #fff 98%, transparent),
@@ -106,33 +110,26 @@ html {
     radial-gradient(1px 1px at 270px 220px, #fff 98%, transparent),
     radial-gradient(1px 1px at 340px 120px, #fff 98%, transparent),
     radial-gradient(1px 1px at 410px 290px, #fff 98%, transparent);
-
   background-size: 450px 320px;
   opacity: 0.35;
   animation-duration: 6s;
 }
-
-/* Medium stars */
 
 .stars-medium {
   background-image:
     radial-gradient(1.5px 1.5px at 70px 90px, #fff 98%, transparent),
     radial-gradient(1.5px 1.5px at 230px 190px, #fff 98%, transparent),
     radial-gradient(1.5px 1.5px at 390px 60px, #fff 98%, transparent);
-
   background-size: 520px 380px;
   opacity: 0.5;
   animation-duration: 8s;
   animation-delay: -2s;
 }
 
-/* Brighter stars */
-
 .stars-large {
   background-image:
     radial-gradient(2px 2px at 140px 120px, #fff 98%, transparent),
     radial-gradient(2px 2px at 420px 280px, #d8c8ff 98%, transparent);
-
   background-size: 650px 450px;
   opacity: 0.65;
   animation-duration: 10s;
@@ -149,10 +146,6 @@ html {
   }
 }
 
-/* =========================================
-   Independently Twinkling Stars
-========================================= */
-
 .twinkling-stars {
   position: absolute;
   inset: 0;
@@ -165,11 +158,9 @@ html {
   border-radius: 50%;
   background: #ffffff;
   opacity: 0.15;
-
   animation-name: individual-twinkle;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
-
   will-change: opacity;
 }
 
@@ -185,19 +176,13 @@ html {
 
   50% {
     opacity: 1;
-    box-shadow:
-      0 0 4px 1px rgba(255, 255, 255, 0.8),
-      0 0 10px 2px rgba(180, 150, 255, 0.35);
+    box-shadow: 0 0 4px 1px rgba(255, 255, 255, 0.8), 0 0 10px 2px rgba(180, 150, 255, 0.35);
   }
 
   55% {
     opacity: 0.4;
   }
 }
-
-/* =========================================
-   Portfolio Content
-========================================= */
 
 .portfolio-content {
   position: relative;
@@ -208,14 +193,11 @@ html {
   pointer-events: auto;
 }
 
-/* =========================================
-   Portfolio Header
-========================================= */
-
 #portfolio-header {
   text-align: center;
   margin-top: 5px;
   padding-top: 25px;
+  padding-bottom: 25px;
 }
 
 #portfolio-header h3 {
@@ -234,12 +216,61 @@ html {
 #portfolio-header p {
   font-style: italic;
   font-size: 75%;
-  margin: 10px 0 -15px;
+  margin: 10px 0 -15px 0;
 }
 
-/* =========================================
-   Section Separators
-========================================= */
+
+.portfolio-links {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
+  max-width: 650px;
+  margin: 40px auto -5px;
+  padding-top: 30px;
+  box-sizing: border-box;
+}
+
+.portfolio-links::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(650px, 90%);
+  max-width: 100%;
+  height: 1px;
+  background: #adadad;
+}
+
+
+.portfolio-links a {
+  display: inline-block;
+  color: #a1a1aa;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: underline;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.portfolio-links a:hover,
+.portfolio-links a:focus-visible {
+  color: #ffffff;
+}
+
+@media (max-width: 600px) {
+  .portfolio-links {
+    gap: 18px;
+  }
+
+  .portfolio-links a {
+    font-size: 12px;
+  }
+}
+
 
 #portfolio-skills,
 #portfolio-projects,
@@ -256,15 +287,10 @@ html {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-
   width: min(650px, 90%);
   height: 1px;
   background: #adadad;
 }
-
-/* =========================================
-   Technical Skills
-========================================= */
 
 #portfolio-skills {
   box-sizing: border-box;
@@ -291,7 +317,7 @@ html {
 }
 
 .skill-group h5 {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
   color: #9ca3af;
   margin: 0 0 12px;
@@ -307,16 +333,13 @@ html {
 .skill-tag {
   display: inline-block;
   font-size: 13px;
+  font-weight: 500;
   color: #a1a1aa;
   background: #323339;
   border: 1px solid #30313a;
   border-radius: 6px;
   padding: 6px 12px;
-
-  transition:
-    background 0.2s ease,
-    border-color 0.2s ease,
-    color 0.2s ease;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
 .skill-tag:hover {
@@ -324,10 +347,6 @@ html {
   background: #2d2f38;
   border-color: #52525b;
 }
-
-/* =========================================
-   Recent Projects
-========================================= */
 
 #portfolio-projects {
   box-sizing: border-box;
@@ -339,14 +358,11 @@ html {
   margin-bottom: -25px;
 }
 
-/* =========================================
-   GitHub Activity
-========================================= */
-
 #follow-on-github {
   margin-top: 5px;
   margin-bottom: 20px;
   text-align: center;
+  margin-bottom: 20px;
 }
 
 #follow-on-github a {
@@ -359,15 +375,11 @@ html {
   max-width: 1000px;
   margin: 10px auto 40px;
   padding: 20px 16px 0;
-
   display: flex;
   flex-direction: column;
   align-items: center;
-
   overflow: hidden;
 }
-
-/* GitHub Calendar */
 
 .github-calendar-wrapper {
   box-sizing: border-box;
@@ -382,10 +394,6 @@ html {
   flex-shrink: 0;
 }
 
-/* =========================================
-   Project Carousel
-========================================= */
-
 .embla__viewport {
   overflow: hidden;
 }
@@ -394,17 +402,14 @@ html {
   margin-top: 20px;
   display: flex;
   touch-action: pan-y pinch-zoom;
-  
 }
 
 .embla__slide {
   flex: 0 0 100%;
   min-width: 0;
+  margin-top: 150px;
+  margin-bottom: 150px;
 }
-
-/* =========================================
-   Carousel Buttons
-========================================= */
 
 .embla__buttons {
   display: flex;
@@ -422,11 +427,7 @@ html {
   border-radius: 6px;
   padding: 6px 12px;
   cursor: pointer;
-
-  transition:
-    background 0.2s ease,
-    border-color 0.2s ease,
-    color 0.2s ease;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
 .embla__buttons button:hover:not(:disabled) {
@@ -445,12 +446,6 @@ html {
   outline-offset: 3px;
 }
 
-/* =========================================
-   Responsive Layout
-========================================= */
-
-/* Tablets */
-
 @media (min-width: 601px) and (max-width: 1024px) {
   .github-calendar-wrapper > * {
     width: max-content;
@@ -458,8 +453,6 @@ html {
     zoom: 0.75;
   }
 }
-
-/* Mobile */
 
 @media (max-width: 600px) {
   #portfolio-skills,
@@ -512,10 +505,6 @@ html {
   }
 }
 
-/* =========================================
-   Accessibility
-========================================= */
-
 @media (prefers-reduced-motion: reduce) {
   .stars,
   .twinkle-star {
@@ -532,14 +521,9 @@ html {
   }
 }
 
-/* =========================================
-   Shadcn / Tailwind Theme
-========================================= */
-
 @theme inline {
   --font-heading: var(--font-sans);
   --font-sans: 'Geist Variable', sans-serif;
-
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -548,13 +532,11 @@ html {
   --color-sidebar-primary: var(--sidebar-primary);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar: var(--sidebar);
-
   --color-chart-5: var(--chart-5);
   --color-chart-4: var(--chart-4);
   --color-chart-3: var(--chart-3);
   --color-chart-2: var(--chart-2);
   --color-chart-1: var(--chart-1);
-
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-border: var(--border);
@@ -573,7 +555,6 @@ html {
   --color-card: var(--card);
   --color-foreground: var(--foreground);
   --color-background: var(--background);
-
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -583,40 +564,31 @@ html {
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-/* Dark portfolio defaults */
-
 :root {
   --background: #09090f;
   --foreground: #c4c4cc;
-
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
-
   --primary: oklch(0.922 0 0);
   --primary-foreground: oklch(0.205 0 0);
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
   --muted-foreground: oklch(0.708 0 0);
-
   --accent: oklch(0.269 0 0);
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
-
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.556 0 0);
-
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
   --chart-4: oklch(0.371 0 0);
   --chart-5: oklch(0.269 0 0);
-
   --radius: 0.625rem;
-
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
   --sidebar-primary: oklch(0.488 0.243 264.376);
@@ -646,4 +618,3 @@ html {
     font-family: 'Geist Variable', sans-serif;
   }
 }
-

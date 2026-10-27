@@ -220,7 +220,7 @@ html::-webkit-scrollbar {
 #portfolio-header p {
   width: 100%;
   max-width: 590px;
-  margin: 10px auto -15px; /* Adjusted margin to -15px to decrease space. Increase bottom margin to increase space */
+  margin: 15px auto -15px; /* Adjusted margin to -15px to decrease space. Increase bottom margin to increase space */
   padding: 0 12px;
   box-sizing: border-box;
   font-style: italic;
@@ -241,7 +241,7 @@ html::-webkit-scrollbar {
   gap: 32px;
   width: 100%;
   max-width: 650px;
-  margin: 40px auto -5px;
+  margin: 40px auto -10px;
   padding-top: 30px;
   box-sizing: border-box;
 }

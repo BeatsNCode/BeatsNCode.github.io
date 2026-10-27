@@ -131,10 +131,15 @@ function App() {
         </nav>
         <header id="portfolio-header">
           <h3>Jean R. Augustin</h3>
-          <h5>Engineer · Musician</h5>
+          <h5 style={{ 
+            fontSize: '85%', 
+            fontWeight: 'bold' 
+            }}
+          >
+            Engineer · Musician · Creative
+          </h5>
           <p>
-            Building software and products at the intersection
-            of technology, music, and creativity.
+            Building at the intersection of technology, sound, and creativity.
           </p>
         </header>
 

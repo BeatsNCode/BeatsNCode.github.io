@@ -370,7 +370,7 @@ html::-webkit-scrollbar {
   font-size: 15px;
   font-weight: 600;
   color: #9ca3af;
-  margin: 0 0 12px;
+  margin: 5px 0 12px;
 }
 
 .skill-items {
@@ -378,6 +378,7 @@ html::-webkit-scrollbar {
   justify-content: center;
   flex-wrap: wrap;
   gap: 8px;
+  margin-top: 3px;
 }
 
 .skill-tag {

@@ -8,10 +8,10 @@ import SoftAurora from './components/SoftAurora'
 const skills = [
   { category: 'Languages', items: ['TypeScript', 'JavaScript', 'Python'] },
   { category: 'Frameworks & Runtime', items: ['React', 'Node.js'] },
-  { category: 'Databases', items: ['PostgreSQL'] },
+  { category: 'Databases', items: ['PostgreSQL', 'MySQL', 'SQLite'] },
   {
     category: 'Engineering',
-    items: ['API Integration', 'Systems Integration', 'REST & GraphQL APIs', 'LLM Integration']
+    items: ['Systems Integration & Automation', 'REST & GraphQL APIs', 'AI & LLM Integration']
   }
 ]
 

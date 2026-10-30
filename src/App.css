@@ -451,7 +451,7 @@ html::-webkit-scrollbar {
 }
 
 .embla__container {
-  margin-top: 20px;
+  margin: 60px;
   display: flex;
   touch-action: pan-y pinch-zoom;
 }

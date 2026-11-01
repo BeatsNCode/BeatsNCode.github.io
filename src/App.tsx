@@ -7,12 +7,12 @@ import SoftAurora from './components/SoftAurora'
 
 const skills = [
   { category: 'Languages', items: ['TypeScript', 'JavaScript', 'Python'] },
-  { category: 'Frameworks & Runtime', items: ['React', 'Node.js'] },
+  { category: 'Frameworks & Runtime', items: ['React', 'Node.js', 'Electron'] },
   { category: 'Databases', items: ['PostgreSQL', 'MySQL', 'SQLite'] },
   { category: 'Systems & Infrastructure', items: ['Linux', 'SSH', 'Networking Fundamentals'] },
   {
     category: 'Engineering',
-    items: ['Systems Integration & Automation', 'REST & GraphQL APIs', 'AI API Integration']
+    items: ['Web & Desktop Application Development', 'Systems Integration & Automation', 'REST & GraphQL APIs', 'AI API Integration']
   }
 ]
 
@@ -140,7 +140,7 @@ function App() {
             Engineer · Musician · Creative
           </h5>
           <p>
-            Building at the intersection of technology, sound, and creativity.
+            Designing and building software, systems, and experiences at the intersection of technology, creativity, and sound.
           </p>
         </header>
 

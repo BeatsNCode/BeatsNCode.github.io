@@ -1,5 +1,5 @@
 
-import { useEffect } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import Autoplay from 'embla-carousel-autoplay'
 import { projects } from '../data/projects'
@@ -7,17 +7,44 @@ import { ProjectCard } from '../data/projectCard'
 
 export function EmblaCarousel() {
   const [emblaRef, emblaApi] = useEmblaCarousel(
-    { loop: false },
-    [Autoplay()]
+    {
+      loop: false,
+      align: 'start',
+      containScroll: 'trimSnaps',
+      slidesToScroll: 1
+    },
+    [Autoplay({ delay: 5000, stopOnInteraction: true })]
   )
 
-  const scrollPrev = () => emblaApi?.scrollPrev()
-  const scrollNext = () => emblaApi?.scrollNext()
+  const [canScrollPrev, setCanScrollPrev] = useState(false)
+  const [canScrollNext, setCanScrollNext] = useState(true)
+
+  const updateButtons = useCallback(() => {
+    if (!emblaApi) return
+
+    setCanScrollPrev(emblaApi.canScrollPrev())
+    setCanScrollNext(emblaApi.canScrollNext())
+  }, [emblaApi])
 
   useEffect(() => {
     if (!emblaApi) return
-    emblaApi.plugins().autoplay?.play()
-  }, [emblaApi])
+
+    emblaApi.on('select', updateButtons)
+    emblaApi.on('reInit', updateButtons)
+
+    return () => {
+      emblaApi.off('select', updateButtons)
+      emblaApi.off('reInit', updateButtons)
+    }
+  }, [emblaApi, updateButtons])
+
+  const scrollPrev = () => {
+    emblaApi?.scrollPrev()
+  }
+
+  const scrollNext = () => {
+    emblaApi?.scrollNext()
+  }
 
   return (
     <div className="embla">
@@ -35,6 +62,7 @@ export function EmblaCarousel() {
         <button
           className="embla__prev"
           onClick={scrollPrev}
+          disabled={!canScrollPrev}
           type="button"
         >
           Prev
@@ -43,6 +71,7 @@ export function EmblaCarousel() {
         <button
           className="embla__next"
           onClick={scrollNext}
+          disabled={!canScrollNext}
           type="button"
         >
           Next

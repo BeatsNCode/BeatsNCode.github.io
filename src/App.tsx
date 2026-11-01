@@ -9,7 +9,7 @@ const skills = [
   { category: 'Languages', items: ['TypeScript', 'JavaScript', 'Python'] },
   { category: 'Frameworks & Runtime', items: ['React', 'Node.js', 'Electron'] },
   { category: 'Databases', items: ['PostgreSQL', 'MySQL', 'SQLite'] },
-  { category: 'Systems & Infrastructure', items: ['Linux', 'SSH', 'Networking Fundamentals'] },
+  { category: 'Systems & Infrastructure', items: ['Git', 'Linux', 'SSH', 'Networking Fundamentals'] },
   {
     category: 'Engineering',
     items: ['Web & Desktop Development', 'Systems Integration & Automation', 'REST & GraphQL APIs', 'LLM Integration', 'AI Agent Orchestration']

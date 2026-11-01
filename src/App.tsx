@@ -12,7 +12,7 @@ const skills = [
   { category: 'Systems & Infrastructure', items: ['Linux', 'SSH', 'Networking Fundamentals'] },
   {
     category: 'Engineering',
-    items: ['Web & Desktop Development', 'Systems Integration & Automation', 'REST & GraphQL APIs', 'AI API Integration']
+    items: ['Web & Desktop Development', 'Systems Integration & Automation', 'REST & GraphQL APIs', 'LLM Integration', 'AI Agent Orchestration']
   }
 ]
 

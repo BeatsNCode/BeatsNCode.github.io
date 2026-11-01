@@ -148,7 +148,7 @@ function App() {
           <a href="#portfolio-skills">Technical Skills</a>
           <a href="#portfolio-projects">Projects</a>
           <a href="#github-activity">GitHub</a>
-          <a href="#contact">Contact</a>
+          <a href="#contact-me">Contact</a>
         </nav>
 
         <section id="portfolio-skills">

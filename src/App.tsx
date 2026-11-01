@@ -9,10 +9,10 @@ const skills = [
   { category: 'Languages', items: ['TypeScript', 'JavaScript', 'Python'] },
   { category: 'Frameworks & Runtime', items: ['React', 'Node.js'] },
   { category: 'Databases', items: ['PostgreSQL', 'MySQL', 'SQLite'] },
-  { category: 'Systems & Infrastructure', items: ['Linux', 'SSH', 'Networking'] },
+  { category: 'Systems & Infrastructure', items: ['Linux', 'SSH', 'Networking Fundamentals'] },
   {
     category: 'Engineering',
-    items: ['Systems Integration & Automation', 'REST & GraphQL APIs', 'AI & LLM Integration']
+    items: ['Systems Integration & Automation', 'REST & GraphQL APIs', 'AI API Integration']
   }
 ]
 
@@ -148,7 +148,7 @@ function App() {
           <a href="#portfolio-skills">Technical Skills</a>
           <a href="#portfolio-projects">Projects</a>
           <a href="#github-activity">GitHub</a>
-          <a href="#contact-me">Contact</a>
+          <a href="#contact-me">GitHub</a>
         </nav>
 
         <section id="portfolio-skills">

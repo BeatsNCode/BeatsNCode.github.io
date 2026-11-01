@@ -1,5 +1,5 @@
 
-import type { Project } from './projects'
+import type { Project } from '../data/projects'
 
 interface ProjectCardProps {
   project: Project

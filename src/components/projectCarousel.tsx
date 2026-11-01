@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import Autoplay from 'embla-carousel-autoplay'
 import { projects } from '../data/projects'
-import { ProjectCard } from '../data/projectCard'
+import { ProjectCard } from './projectCard'
 
 export function EmblaCarousel() {
   const [emblaRef, emblaApi] = useEmblaCarousel(

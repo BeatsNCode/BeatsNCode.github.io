@@ -179,7 +179,7 @@ function App() {
             on GitHub
           </h4>
           <div className="github-calendar-wrapper">
-            <GitHubCalendar username="BeatsNCode" blockSize={11} />
+            <GitHubCalendar username="BeatsNCode" blockSize={10} />
           </div>
         </section>
       </div>

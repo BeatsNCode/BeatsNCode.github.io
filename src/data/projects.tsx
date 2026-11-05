@@ -23,7 +23,7 @@ export const projects: Project[] = [
     id: 'voice-ordering',
     title: 'Voice Ordering Service',
     description: 'An AI-powered restaurant ordering application that uses speech recognition and natural language processing to turn voice commands into orders.',
-    image: '/projects/voice-ordering.webp',
+    image: '/src/assets/voice-ordering-service-preview.png',
     technologies: ['React', 'TypeScript', 'Node.js', 'Deepgram', 'Gemini API'],
     github: 'https://github.com/BeatsNCode/voice-ordering-service',
     demo: '#'

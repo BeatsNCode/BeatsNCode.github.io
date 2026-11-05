@@ -13,7 +13,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         alt={`${project.title} screenshot`}
         loading="lazy"
       />
-      <h3>{project.title}</h3>
+      <h5 style={{fontWeight: 'bold', margin: '8px 0 5px 0'}}>{project.title}</h5>
       <p>{project.description}</p>
       <div className="project-technologies">
         {project.technologies.map((technology) => (

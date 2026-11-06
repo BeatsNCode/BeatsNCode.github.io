@@ -66,8 +66,39 @@ html::-webkit-scrollbar {
 
 @media (max-width: 768px) {
   .section-nav {
-    right: 12px;
-    gap: 16px;
+    display: none;
+  }
+    .embla {
+    width: calc(100% - 40px);
+    margin: 0 auto;
+  }
+
+  .embla__slide {
+    flex: 0 0 100%;
+    min-width: 0;
+    padding: 0 8px;
+    box-sizing: border-box;
+  }
+
+  .embla__viewport {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .project-card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .project-card p {
+    max-width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    text-align: center;
+    overflow-wrap: break-word;
   }
 }
 

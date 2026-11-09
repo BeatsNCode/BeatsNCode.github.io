@@ -171,13 +171,13 @@ function App() {
           <ProjectCarousel />
         </section>
         <section id="github-activity">
-          <h4 id="follow-on-github">
+          <p id="follow-on-github">
             Follow{' '}
             <a href="https://github.com/BeatsNCode" target="_blank" rel="noopener noreferrer">
               @BeatsNCode
             </a>{' '}
             on GitHub
-          </h4>
+          </p>
           <div className="github-calendar-wrapper">
             <GitHubCalendar username="BeatsNCode" blockSize={10} />
           </div>
